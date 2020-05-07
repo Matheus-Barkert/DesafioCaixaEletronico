@@ -45,7 +45,8 @@ public class CaixaEletronicoController {
             return ResponseEntity.ok(caixaEletronicoConverter.saqueToSaqueDto(saque));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().build();
+            throw new IllegalArgumentException();
+            //return ResponseEntity.badRequest().build();
         }
 
     }

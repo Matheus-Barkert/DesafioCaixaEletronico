@@ -28,7 +28,7 @@ public class CaixaEletronicoService {
             }
             return new Saque(valorSaque, retorno);
         }
-        throw new IllegalArgumentException("O valor deve ser divisivel por 10!");
+        throw new IllegalArgumentException("O valor deve ser divisivel por 10!(Service)");
 
     }
 
