@@ -22,13 +22,20 @@ import javax.validation.Valid;
 @RequestMapping("/caixa")
 public class CaixaEletronicoController {
 
-    private final CaixaEletronicoService caixaEletronicoService;
-    private final CaixaEletronicoConverter caixaEletronicoConverter;
+    @Autowired
+    public CaixaEletronicoService caixaEletronicoService;
 
-    public CaixaEletronicoController(CaixaEletronicoService caixaEletronicoService, CaixaEletronicoConverter caixaEletronicoConverter) {
-        this.caixaEletronicoService = caixaEletronicoService;
-        this.caixaEletronicoConverter = caixaEletronicoConverter;
-    }
+    @Autowired
+    public CaixaEletronicoConverter caixaEletronicoConverter;
+
+    //todo revisar, nao passei pelo contrutor para tentar fazer os testes
+//    private final CaixaEletronicoService caixaEletronicoService;
+//    private final CaixaEletronicoConverter caixaEletronicoConverter;
+//
+//    public CaixaEletronicoController(CaixaEletronicoService caixaEletronicoService, CaixaEletronicoConverter caixaEletronicoConverter) {
+//        this.caixaEletronicoService = caixaEletronicoService;
+//        this.caixaEletronicoConverter = caixaEletronicoConverter;
+//    }
 
     @PostMapping
     public ResponseEntity<SaqueDto> sacar(@Valid @RequestBody SaqueDto saqueDto) {

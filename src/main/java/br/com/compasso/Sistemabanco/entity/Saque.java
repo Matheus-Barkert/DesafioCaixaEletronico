@@ -1,57 +1,34 @@
 package br.com.compasso.Sistemabanco.entity;
 
 import br.com.compasso.Sistemabanco.dto.SaqueDto;
+import br.com.compasso.Sistemabanco.entity.notas.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Saque {
 
-
     private Long valor;
+    private List<Notas> listaNotas = Arrays.asList(new CemReais(), new CinquentaReais(),
+                                                    new VinteReais(), new DezReais());
 
-    private int nota100 = 0;
-    private int nota50 = 0;
-    private int nota20 = 0;
-    private int nota10 = 0;
-
-    //TODO descobrir uma forma melhor de fazer isso
     public Saque(Long valor, List<Integer> valores){
         this.valor = valor;
-        this.nota100 = valores.get(0);
-        this.nota50 = valores.get(1);
-        this.nota20 = valores.get(2);
-        this.nota10 = valores.get(3);
-    }
-
-    //todo contrutor para os testes
-    public Saque(){
-        this.valor = 100L;
-        this.nota100 = 1;
-        this.nota50 = 0;
-        this.nota20 = 0;
-        this.nota10 = 0;
-
+        listaNotas.get(0).setQuantidade(valores.get(0));
+        listaNotas.get(1).setQuantidade(valores.get(1));
+        listaNotas.get(2).setQuantidade(valores.get(2));
+        listaNotas.get(3).setQuantidade(valores.get(3));
     }
 
     public Long getValor() {
         return valor;
     }
 
-    public int getNota100() {
-        return nota100;
+    public List<Notas> getListaNotas() {
+        return Collections.unmodifiableList(listaNotas);
     }
 
-    public int getNota50() {
-        return nota50;
-    }
-
-    public int getNota20() {
-        return nota20;
-    }
-
-    public int getNota10() {
-        return nota10;
-    }
 }
