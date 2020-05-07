@@ -25,6 +25,16 @@ public class Saque {
         this.nota10 = valores.get(3);
     }
 
+    //todo contrutor para os testes
+    public Saque(){
+        this.valor = 100L;
+        this.nota100 = 1;
+        this.nota50 = 0;
+        this.nota20 = 0;
+        this.nota10 = 0;
+
+    }
+
     public Long getValor() {
         return valor;
     }
