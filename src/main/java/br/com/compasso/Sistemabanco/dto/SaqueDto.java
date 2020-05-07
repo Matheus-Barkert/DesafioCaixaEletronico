@@ -1,7 +1,7 @@
 package br.com.compasso.Sistemabanco.dto;
 
 import br.com.compasso.Sistemabanco.entity.Saque;
-import br.com.compasso.Sistemabanco.entity.notas.*;
+import br.com.compasso.Sistemabanco.entity.notas.Nota;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +14,7 @@ public class SaqueDto {
     private List<Nota> listaNotas;
 
     public SaqueDto() {
-        
+
     }
 
     public SaqueDto(Saque saque) {

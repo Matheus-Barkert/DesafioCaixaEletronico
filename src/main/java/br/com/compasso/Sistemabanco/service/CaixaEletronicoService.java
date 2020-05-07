@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class CaixaEletronicoService {
 
-    //todo revisar LISTANOTAS
     private final List<Nota> listaNotas = new CaixaEletronico().getListaNotas();
     private List<Integer> retorno = new ArrayList<>();
 
@@ -23,7 +22,7 @@ public class CaixaEletronicoService {
             Long valor = valorSaque;
 
             for (Nota nota : listaNotas) {
-                valor = retornaNotas(valor, nota);
+                valor = retornaValor(valor, nota);
             }
             return new Saque(valorSaque, retorno);
 
@@ -42,9 +41,13 @@ public class CaixaEletronicoService {
         return valor % listaNotas.get(listaNotas.size() - 1).getValor() == 0;
     }
 
-    private Long retornaNotas(Long valor, Nota nota) {
+    private Long retornaValor(Long valor, Nota nota) {
         int qtdNota = (int) (valor / nota.getValor());
-        retorno.add(qtdNota);
+        adicionaNaListaRetorno(qtdNota);
         return valor - (qtdNota * nota.getValor());
+    }
+
+    private void adicionaNaListaRetorno(int qtdNota) {
+        retorno.add(qtdNota);
     }
 }

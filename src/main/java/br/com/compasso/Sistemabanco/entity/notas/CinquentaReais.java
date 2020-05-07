@@ -7,7 +7,7 @@ public class CinquentaReais implements Nota {
 
     public CinquentaReais() {
         this.valor = 50L;
-        this.quantidade= 0;
+        this.quantidade = 0;
     }
 
     public void setQuantidade(int quantidade) {

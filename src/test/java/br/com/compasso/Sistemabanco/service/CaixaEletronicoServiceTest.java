@@ -4,9 +4,6 @@ import br.com.compasso.Sistemabanco.entity.Saque;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-
 class CaixaEletronicoServiceTest {
 
     CaixaEletronicoService caixaEletronicoService = new CaixaEletronicoService();

@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.List;
-
 @ControllerAdvice
 public class ErroDeValidacaoHandler {
 
@@ -22,7 +20,7 @@ public class ErroDeValidacaoHandler {
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {IllegalArgumentException.class})
-    public ResponseEntity<ErroDeFormularioDto> handle(IllegalArgumentException exception) {
+    public ResponseEntity<ErroDeFormularioDto> handle() {
 
         ErroDeFormularioDto dto = new ErroDeFormularioDto("valor", "O numero deve ser positivo e divisivel por " + menorNota.getValor() + "!");
 

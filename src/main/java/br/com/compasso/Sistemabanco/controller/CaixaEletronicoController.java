@@ -5,7 +5,6 @@ import br.com.compasso.Sistemabanco.converter.CaixaEletronicoConverter;
 import br.com.compasso.Sistemabanco.dto.SaqueDto;
 import br.com.compasso.Sistemabanco.entity.Saque;
 import br.com.compasso.Sistemabanco.service.CaixaEletronicoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +34,6 @@ public class CaixaEletronicoController {
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             throw new IllegalArgumentException();
-            //return ResponseEntity.badRequest().build();
         }
 
     }

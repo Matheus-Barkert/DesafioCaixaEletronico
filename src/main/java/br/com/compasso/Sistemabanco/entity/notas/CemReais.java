@@ -5,7 +5,7 @@ public class CemReais implements Nota {
     private Long valor;
     private int quantidade;
 
-    public CemReais(){
+    public CemReais() {
         this.valor = 100L;
         this.quantidade = 0;
     }
