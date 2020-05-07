@@ -1,6 +1,6 @@
 package br.com.compasso.Sistemabanco.entity.notas;
 
-public class VinteReais implements Notas{
+public class VinteReais implements Nota {
 
     private Long valor;
     private int quantidade;

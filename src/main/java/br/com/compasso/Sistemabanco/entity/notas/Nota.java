@@ -1,6 +1,6 @@
 package br.com.compasso.Sistemabanco.entity.notas;
 
-public interface Notas {
+public interface Nota {
 
     void setQuantidade(Integer quantidade);
 

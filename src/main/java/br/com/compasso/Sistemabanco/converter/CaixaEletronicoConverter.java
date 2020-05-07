@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 public class CaixaEletronicoConverter {
 
     public SaqueDto saqueToSaqueDto(Saque saque) {
-        //todo revisar
         return new SaqueDto(saque);
-//        return new SaqueDto(saque);
     }
 }
