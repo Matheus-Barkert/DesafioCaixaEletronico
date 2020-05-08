@@ -15,7 +15,7 @@ public class Verificador {
     }
 
     private boolean ehDivisivelPor(Long valor) {
-        return valor % listaNotas.get(listaNotas.size() - 1).getValor() == 0;
+        return listaNotas.stream().anyMatch(nota -> valor % nota.getValor() == 0);
     }
 
 }

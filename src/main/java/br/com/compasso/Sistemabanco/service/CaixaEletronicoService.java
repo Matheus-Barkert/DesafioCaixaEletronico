@@ -31,11 +31,9 @@ public class CaixaEletronicoService {
 
     private Long retornaValor(Long valor, Nota nota) {
         int qtdNota = (int) (valor / nota.getValor());
-        adicionaNaListaQuantidadeNotas(qtdNota);
+        quantidadeNotas.add(qtdNota);
         return valor - (qtdNota * nota.getValor());
     }
 
-    private void adicionaNaListaQuantidadeNotas(int qtdNota) {
-        quantidadeNotas.add(qtdNota);
-    }
+
 }
