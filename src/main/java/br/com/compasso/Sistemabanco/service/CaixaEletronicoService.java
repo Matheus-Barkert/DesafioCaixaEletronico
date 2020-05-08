@@ -12,11 +12,11 @@ import java.util.List;
 public class CaixaEletronicoService {
 
     private final List<Nota> listaNotas = new CaixaEletronico().getListaNotas();
-    private List<Integer> retorno = new ArrayList<>();
+    private List<Integer> quantidadeNotas = new ArrayList<>();
 
     public Saque realizarSaque(Long valorSaque) {
 
-        retorno.clear();
+        quantidadeNotas.clear();
 
         if (verificaValor(valorSaque)) {
             Long valor = valorSaque;
@@ -24,30 +24,30 @@ public class CaixaEletronicoService {
             for (Nota nota : listaNotas) {
                 valor = retornaValor(valor, nota);
             }
-            return new Saque(valorSaque, retorno);
-
+            return new Saque(valorSaque, quantidadeNotas);
         }
         throw new IllegalArgumentException("O valor deve ser divisivel por 10!(Service)");
 
     }
 
     private boolean verificaValor(Long valorSaque) {
-
         if (valorSaque > 0 && ehDivisivelPor(valorSaque)) return true;
+
         return false;
     }
 
+    //todo revisar, nao funciona corretamente com notas de 2 reais
     private boolean ehDivisivelPor(Long valor) {
         return valor % listaNotas.get(listaNotas.size() - 1).getValor() == 0;
     }
 
     private Long retornaValor(Long valor, Nota nota) {
         int qtdNota = (int) (valor / nota.getValor());
-        adicionaNaListaRetorno(qtdNota);
+        adicionaNaListaQuantidadeNotas(qtdNota);
         return valor - (qtdNota * nota.getValor());
     }
 
-    private void adicionaNaListaRetorno(int qtdNota) {
-        retorno.add(qtdNota);
+    private void adicionaNaListaQuantidadeNotas(int qtdNota) {
+        quantidadeNotas.add(qtdNota);
     }
 }

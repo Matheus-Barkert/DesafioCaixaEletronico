@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class ErroDeValidacaoHandler {
 
-    Nota menorNota = new CaixaEletronico().getMenorNota();
+    private Nota menorNota = new CaixaEletronico().getMenorNota();
 
     @Autowired
     private MessageSource messageSource;
