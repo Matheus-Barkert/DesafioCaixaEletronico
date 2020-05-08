@@ -14,10 +14,6 @@ public class SaqueDto {
 
     private List<Nota> listaNotas;
 
-    public SaqueDto() {
-
-    }
-
     public SaqueDto(Saque saque) {
         this.valor = saque.getValor();
         this.listaNotas = saque.getListaNotas();
@@ -25,10 +21,6 @@ public class SaqueDto {
 
     public Long getValor() {
         return valor;
-    }
-
-    public List<Nota> getListaNotas() {
-        return Collections.unmodifiableList(listaNotas);
     }
 
 }
