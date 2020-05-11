@@ -1,9 +1,8 @@
 package br.com.compasso.Sistemabanco.service;
 
 import br.com.compasso.Sistemabanco.entity.Saque;
-import org.junit.jupiter.api.Assertions;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +13,7 @@ class CaixaEletronicoServiceTest {
     @Test
     public void testaRealizaSaqueComValorNegativo() {
 
-        assertThrows(IllegalArgumentException.class, () ->{
+        assertThrows(IllegalArgumentException.class, () -> {
             Saque saque = caixaEletronicoService.realizarSaque((long) -10);
         });
     }
@@ -22,7 +21,7 @@ class CaixaEletronicoServiceTest {
     @Test
     public void testaRealizaSaqueComValorInvalido() {
 
-        assertThrows(IllegalArgumentException.class, () ->{
+        assertThrows(IllegalArgumentException.class, () -> {
             Saque saque = caixaEletronicoService.realizarSaque(128L);
         });
     }
@@ -75,5 +74,13 @@ class CaixaEletronicoServiceTest {
 
     }
 
+    @Test
+    public void testaQuantidadeNotas100Reais() {
+
+        Saque saque = caixaEletronicoService.realizarSaque(200L);
+
+        assertTrue(saque.getListaNotas().get(0).getQuantidade() == 2);
+
+    }
 
 }

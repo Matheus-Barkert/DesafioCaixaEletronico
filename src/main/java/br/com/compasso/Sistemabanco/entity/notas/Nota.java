@@ -1,10 +1,19 @@
 package br.com.compasso.Sistemabanco.entity.notas;
 
-public interface Nota {
+public abstract class Nota {
 
-    void setQuantidade(Integer quantidade);
+    protected Long valor;
+    protected int quantidade;
 
-    int getQuantidade();
+    public void setQuantidade(Integer quantidade){
+        this.quantidade = quantidade;
+    }
 
-    Long getValor();
+    public int getQuantidade(){
+        return quantidade;
+    }
+
+    public Long getValor(){
+        return valor;
+    }
 }

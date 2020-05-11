@@ -18,19 +18,19 @@ public class CaixaEletronicoService {
     public Saque realizarSaque(Long valorSaque) {
 
         quantidadeParaCadaNota.clear();
-        Long valor = valorSaque;
 
         if (verificador.verificaValor(valorSaque)) {
 
+            Long valor = valorSaque;
             for (Nota nota : notasNoCaixa) {
-                valor = retornaValor(valor, nota.getValor());
+                valor = realizaCalculoEMontaQuantidadeParaCadaNota(valor, nota.getValor());
             }
             return new Saque(valorSaque, quantidadeParaCadaNota);
         }
         throw new IllegalArgumentException("O valor deve ser positivo e divisivel por ?!(Service)");
     }
 
-    private Long retornaValor(Long valor, Long valorNota) {
+    private Long realizaCalculoEMontaQuantidadeParaCadaNota(Long valor, Long valorNota) {
         int quantidadeParaNota = (int) (valor / valorNota);
         quantidadeParaCadaNota.add(quantidadeParaNota);
         return valor - (quantidadeParaNota * valorNota);

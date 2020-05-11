@@ -26,8 +26,7 @@ public class ErroDeValidacaoHandler {
         ErroDeFormularioDto dto;
 
         if(e.getClass().equals(IllegalArgumentException.class))
-            dto = new ErroDeFormularioDto("valor", "O numero deve ser positivo e divisivel por " + menorNota.getValor() + "!");
-
+            dto = new ErroDeFormularioDto("valor", "O numero deve ser positivo, inteiro e divisivel por " + menorNota.getValor() + "!");
         else
             dto = new ErroDeFormularioDto("valor", "Permitido apenas numeros!");
 
