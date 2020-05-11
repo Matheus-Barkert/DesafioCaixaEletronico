@@ -30,7 +30,7 @@ public class CaixaEletronicoController {
 
         try {
             Saque saque = caixaEletronicoService.realizarSaque(saqueDto.getValor());
-            return ResponseEntity.ok(caixaEletronicoConverter.saqueToSaqueDto(saque));
+            return ResponseEntity.ok(caixaEletronicoConverter.saqueParaSaqueDto(saque));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             throw new IllegalArgumentException();

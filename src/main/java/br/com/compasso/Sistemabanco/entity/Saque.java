@@ -10,10 +10,10 @@ public class Saque {
     private Long valor;
     private List<Nota> listaNotas = new CaixaEletronico().getListaNotas();
 
-    public Saque(Long valor, List<Integer> quantidadeNotas) {
+    public Saque(Long valor, List<Integer> quantidadeParaCadaNota) {
         this.valor = valor;
-        for (int i = 0; i < quantidadeNotas.size(); i++) {
-            listaNotas.get(i).setQuantidade(quantidadeNotas.get(i));
+        for (int i = 0; i < quantidadeParaCadaNota.size(); i++) {
+            listaNotas.get(i).setQuantidade(quantidadeParaCadaNota.get(i));
         }
     }
 

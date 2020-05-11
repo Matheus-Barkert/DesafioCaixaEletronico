@@ -3,6 +3,7 @@ package br.com.compasso.Sistemabanco.service;
 import br.com.compasso.Sistemabanco.entity.Saque;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CaixaEletronicoConverter {
 
-    public SaqueDto saqueToSaqueDto(Saque saque) {
+    public SaqueDto saqueParaSaqueDto(Saque saque) {
         return new SaqueDto(saque);
     }
 }

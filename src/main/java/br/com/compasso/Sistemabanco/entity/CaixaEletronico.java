@@ -8,7 +8,7 @@ import java.util.List;
 public class CaixaEletronico {
 
     private List<Nota> listaNotas = Arrays.asList(new CemReais(), new CinquentaReais(),
-            new VinteReais(), new DezReais());
+            new VinteReais(), new DezReais(), new CincoReais());
 
     public List<Nota> getListaNotas() {
         return listaNotas;

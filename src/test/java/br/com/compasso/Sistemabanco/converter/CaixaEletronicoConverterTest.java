@@ -15,7 +15,7 @@ class CaixaEletronicoConverterTest {
     @Test
     public void testandoSaqueToSaqueDto() {
         Saque saque = new Saque(10L, Arrays.asList(1));
-        SaqueDto saqueDto = caixaEletronicoConverter.saqueToSaqueDto(saque);
+        SaqueDto saqueDto = caixaEletronicoConverter.saqueParaSaqueDto(saque);
 
         assertEquals(10L, saqueDto.getValor());
     }
@@ -24,7 +24,7 @@ class CaixaEletronicoConverterTest {
     public void testaSeDevolveObjetoDoTipoSaqueDto() {
         Saque saque = new Saque(1L, Arrays.asList(1));
 
-        assertSame(SaqueDto.class, caixaEletronicoConverter.saqueToSaqueDto(saque).getClass());
+        assertSame(SaqueDto.class, caixaEletronicoConverter.saqueParaSaqueDto(saque).getClass());
     }
 
 }
