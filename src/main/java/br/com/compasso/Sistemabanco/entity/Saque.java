@@ -2,6 +2,7 @@ package br.com.compasso.Sistemabanco.entity;
 
 import br.com.compasso.Sistemabanco.entity.notas.Nota;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
