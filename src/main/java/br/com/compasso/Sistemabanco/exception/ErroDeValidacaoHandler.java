@@ -20,15 +20,19 @@ public class ErroDeValidacaoHandler {
     private MessageSource messageSource;
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(value = {IllegalArgumentException.class, HttpMessageNotReadableException.class})
+    @ExceptionHandler(value = {IllegalArgumentException.class, HttpMessageNotReadableException.class, NullPointerException.class})
     public ResponseEntity<ErroDeFormularioDto> handle(Exception e) {
 
         ErroDeFormularioDto dto;
 
         if(e.getClass().equals(IllegalArgumentException.class))
             dto = new ErroDeFormularioDto("valor", "O numero deve ser positivo, inteiro e divisivel por " + menorNota.getValor() + "!");
-        else
+
+        else if (e.getClass().equals(HttpMessageNotReadableException.class))
             dto = new ErroDeFormularioDto("valor", "Permitido apenas numeros!");
+
+        else
+            dto = new ErroDeFormularioDto("valor", "Nao pode ser nulo!");
 
         return new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
     }
