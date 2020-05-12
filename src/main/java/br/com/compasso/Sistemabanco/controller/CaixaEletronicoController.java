@@ -28,7 +28,7 @@ public class CaixaEletronicoController {
     }
 
     @PostMapping
-    @ApiOperation(value = "Realiza saque.")
+    @ApiOperation(value = "Realiza saque")
     public ResponseEntity<SaqueDto> sacar(@Valid @RequestBody SaqueDtoEntrada saqueDtoEntrada) {
 
         try {
