@@ -37,4 +37,7 @@ public class CaixaEletronicoService {
     }
 
 
+    public List<Nota> listaNotas() {
+        return notasNoCaixa;
+    }
 }

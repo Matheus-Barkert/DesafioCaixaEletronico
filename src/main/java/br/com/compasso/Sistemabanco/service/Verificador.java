@@ -10,8 +10,10 @@ public class Verificador {
     private List<Nota> listaNotas = new CaixaEletronico().getListaNotas();
 
     public boolean verificaValor(Long valorSaque) {
-        if (valorSaque > 0 && ehDivisivelPor(valorSaque)) return true;
+        if (ehDivisivelPor(valorSaque)) return true;
         return false;
+//        if (valorSaque > 0 && ehDivisivelPor(valorSaque)) return true;
+//        return false;
     }
 
     private boolean ehDivisivelPor(Long valor) {

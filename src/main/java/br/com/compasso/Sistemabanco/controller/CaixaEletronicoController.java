@@ -2,16 +2,20 @@ package br.com.compasso.Sistemabanco.controller;
 
 
 import br.com.compasso.Sistemabanco.converter.CaixaEletronicoConverter;
+import br.com.compasso.Sistemabanco.dto.NotaDto;
 import br.com.compasso.Sistemabanco.dto.SaqueDto;
 import br.com.compasso.Sistemabanco.dto.SaqueDtoEntrada;
 import br.com.compasso.Sistemabanco.entity.Saque;
+import br.com.compasso.Sistemabanco.entity.notas.Nota;
 import br.com.compasso.Sistemabanco.service.CaixaEletronicoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/caixa")
@@ -25,6 +29,13 @@ public class CaixaEletronicoController {
     public CaixaEletronicoController(CaixaEletronicoService caixaEletronicoService, CaixaEletronicoConverter caixaEletronicoConverter) {
         this.caixaEletronicoService = caixaEletronicoService;
         this.caixaEletronicoConverter = caixaEletronicoConverter;
+    }
+
+    @GetMapping
+    @ApiOperation(value = "Lista notas disponiveis")
+    public ResponseEntity<List<NotaDto>> listarNotas() {
+        List<Nota> notas = caixaEletronicoService.listaNotas();
+        return ResponseEntity.ok(caixaEletronicoConverter.notasParaNotasDto(notas));
     }
 
     @PostMapping

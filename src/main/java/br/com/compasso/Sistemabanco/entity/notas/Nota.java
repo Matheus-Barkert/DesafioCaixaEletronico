@@ -1,19 +1,13 @@
 package br.com.compasso.Sistemabanco.entity.notas;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public abstract class Nota {
 
+    @Getter
     protected Long valor;
+    @Getter @Setter
     protected int quantidade;
 
-    public void setQuantidade(Integer quantidade){
-        this.quantidade = quantidade;
-    }
-
-    public int getQuantidade(){
-        return quantidade;
-    }
-
-    public Long getValor(){
-        return valor;
-    }
 }

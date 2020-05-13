@@ -14,7 +14,7 @@ public class CaixaEletronico {
         return listaNotas;
     }
 
-    public Nota getMenorNota() {
-        return listaNotas.get(listaNotas.size() - 1);
+    public Long getValorMenorNota() {
+        return listaNotas.get(listaNotas.size() - 1).getValor();
     }
 }

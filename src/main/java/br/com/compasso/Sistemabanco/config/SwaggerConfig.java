@@ -30,16 +30,16 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("br.com.compasso.Sistemabanco"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
-                .apiInfo(metaInfo())
-                .globalOperationParameters(Arrays.asList(
-                        new ParameterBuilder().name("Saque")
-                        .description("passado o valor do saque, devolve a quantidade de notas.")
-                        .modelRef(new ModelRef("int"))
-                        .parameterType("body")
-                        .required(false)
-                        .build()
+                .apiInfo(metaInfo());
+//                .globalOperationParameters(Arrays.asList(
+//                        new ParameterBuilder().name("Saque")
+//                        .description("passado o valor do saque, devolve a quantidade de notas.")
+//                        .modelRef(new ModelRef("int"))
+//                        .parameterType("header")
+//                        .required(false)
+//                        .build()
 
-                ));
+
     }
 
     private ApiInfo metaInfo() {

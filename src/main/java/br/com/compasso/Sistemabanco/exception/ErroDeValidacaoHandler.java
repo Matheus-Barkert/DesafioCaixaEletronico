@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class ErroDeValidacaoHandler {
 
-    private Nota menorNota = new CaixaEletronico().getMenorNota();
+    private Long menorNota = new CaixaEletronico().getValorMenorNota();
 
     @Autowired
     private MessageSource messageSource;
@@ -26,7 +26,7 @@ public class ErroDeValidacaoHandler {
         ErroDeFormularioDto dto;
 
         if(e.getClass().equals(IllegalArgumentException.class))
-            dto = new ErroDeFormularioDto("valor", "O numero deve ser positivo, inteiro e divisivel por " + menorNota.getValor() + "!");
+            dto = new ErroDeFormularioDto("valor", "O numero deve ser positivo, inteiro e divisivel por " + menorNota + "!");
 
         else if (e.getClass().equals(HttpMessageNotReadableException.class))
             dto = new ErroDeFormularioDto("valor", "Permitido apenas numeros!");
