@@ -45,13 +45,13 @@ public class SwaggerConfig {
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo(
                 "Caixa Eletronico API REST",
-                "API REST com funcao de saque de notas",
+                "API REST simulando um caixa de banco",
                 "1.0",
-                "Terms of Service",
+                "https://www.google.com.br",
                 new Contact("Matheus Barkert", "https://github.com/Matheus-Barkert",
                         "mbarkert11@hotmail.com"),
-                "Apache Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
+                "Sem licenca",
+                "https://www.google.com.br", new ArrayList<VendorExtension>()
         );
 
         return apiInfo;

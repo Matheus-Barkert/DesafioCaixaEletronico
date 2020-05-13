@@ -10,14 +10,7 @@ public class Verificador {
     private List<Nota> listaNotas = new CaixaEletronico().getListaNotas();
 
     public boolean verificaValor(Long valorSaque) {
-        if (ehDivisivelPor(valorSaque)) return true;
-        return false;
-//        if (valorSaque > 0 && ehDivisivelPor(valorSaque)) return true;
-//        return false;
-    }
-
-    private boolean ehDivisivelPor(Long valor) {
-        return listaNotas.stream().anyMatch(nota -> valor % nota.getValor() == 0);
+        return listaNotas.stream().anyMatch(nota -> valorSaque % nota.getValor() == 0);
     }
 
 }

@@ -6,8 +6,6 @@ import br.com.compasso.Sistemabanco.entity.Saque;
 import br.com.compasso.Sistemabanco.entity.notas.Nota;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +17,6 @@ public class CaixaEletronicoConverter {
     }
 
     public List<NotaDto> notasParaNotasDto(List<Nota> notas) {
-        return notas.stream().map(nota -> new NotaDto(nota.getValor())).collect(Collectors.toList());
+        return notas.stream().map(NotaDto::new).collect(Collectors.toList());
     }
 }

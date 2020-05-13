@@ -6,6 +6,7 @@ import br.com.compasso.Sistemabanco.entity.Saque;
 import br.com.compasso.Sistemabanco.service.CaixaEletronicoService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ class ErroDeValidacaoHandlerTest {
     @Test
     public void testaExceptionParaNumeroNegativo() {
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(MethodArgumentNotValidException.class, () -> {
             caixaEletronicoService.realizarSaque(-100L);
         });
     }

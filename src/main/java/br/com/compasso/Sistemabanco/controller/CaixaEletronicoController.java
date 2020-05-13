@@ -10,7 +10,6 @@ import br.com.compasso.Sistemabanco.entity.notas.Nota;
 import br.com.compasso.Sistemabanco.service.CaixaEletronicoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/caixa")
-@Api(value="API REST Saque")
+@Api(value = "API REST Saque")
 @CrossOrigin(origins = "*")
 public class CaixaEletronicoController {
 
@@ -49,8 +48,6 @@ public class CaixaEletronicoController {
             e.printStackTrace();
             throw new IllegalArgumentException();
         }
-
     }
-
 
 }

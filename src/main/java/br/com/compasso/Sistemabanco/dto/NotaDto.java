@@ -10,4 +10,8 @@ public class NotaDto {
     @Getter
     private Long valor;
 
+    public NotaDto(Nota nota) {
+        this.valor = nota.getValor();
+    }
+
 }
