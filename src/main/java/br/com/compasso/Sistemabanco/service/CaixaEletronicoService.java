@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class CaixaEletronicoService {
@@ -21,10 +22,11 @@ public class CaixaEletronicoService {
 
         if (verificador.verificaValor(valorSaque)) {
 
-            Long valor = valorSaque;
-            for (Nota nota : notasNoCaixa) {
-                valor = realizaCalculoEMontaQuantidadeParaCadaNota(valor, nota.getValor());
-            }
+            AtomicLong valor = new AtomicLong(valorSaque);
+            notasNoCaixa.stream().forEach(nota -> {
+                valor.set(realizaCalculoEMontaQuantidadeParaCadaNota(valor.get(), nota.getValor()));
+            });
+
             return new Saque(valorSaque, quantidadeParaCadaNota);
         }
         throw new IllegalArgumentException("O valor deve ser positivo e divisivel por ?!(Service)");

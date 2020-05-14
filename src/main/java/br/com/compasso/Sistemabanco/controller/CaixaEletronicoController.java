@@ -10,6 +10,8 @@ import br.com.compasso.Sistemabanco.entity.notas.Nota;
 import br.com.compasso.Sistemabanco.service.CaixaEletronicoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +34,10 @@ public class CaixaEletronicoController {
 
     @GetMapping
     @ApiOperation(value = "Lista notas disponiveis")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Lista de notas retornadas com sucesso!", response = NotaDto.class),
+            @ApiResponse(code = 500, message = "Erro interno!")
+    })
     public ResponseEntity<List<NotaDto>> listarNotas() {
         List<Nota> notas = caixaEletronicoService.listaNotas();
         return ResponseEntity.ok(caixaEletronicoConverter.notasParaNotasDto(notas));
@@ -39,6 +45,11 @@ public class CaixaEletronicoController {
 
     @PostMapping
     @ApiOperation(value = "Realiza saque")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Saque realizado com sucesso!", response = SaqueDto.class),
+            @ApiResponse(code = 400, message = "Erro de requisição!"),
+            @ApiResponse(code = 500, message = "Erro interno!")
+    })
     public ResponseEntity<SaqueDto> sacar(@Valid @RequestBody SaqueDtoEntrada saqueDtoEntrada) {
 
         try {
